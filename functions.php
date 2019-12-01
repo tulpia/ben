@@ -13,8 +13,8 @@ require_once("controllers/Header.php");
 require_once("controllers/Footer.php");
 require_once("controllers/Contact.php");
 
-wp_enqueue_script( 'site_main_js', get_template_directory_uri() . '/dist/bundle.js' , null , null , true );
-wp_enqueue_style( 'site_main_css', get_template_directory_uri() . '/dist/bundle.css' );
+wp_enqueue_style('site_main_css', get_template_directory_uri() . '/assets/styles/main.css', array(), '1.0', false);
+wp_enqueue_script('site_main_js', get_template_directory_uri() . '/assets/scripts/main.js', array(), '1.0', true);
 
 // Timber init
 $timber = new Timber\Timber();
