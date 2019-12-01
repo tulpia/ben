@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% block head %}
+            title and meta here
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+        {% block header %}
+            header goes here
+        {% endblock %}
+        </header>
+
+        <main>
+        {% block content %}
+            content goes here
+        {% endblock %}
+        </main>
+
+        <footer>
+        {% block footer %}
+            {% include "footer.twig" %}
+        {% endblock %}
+        {{ function('wp_footer') }}
+        </footer>
+    </body>
+</html>

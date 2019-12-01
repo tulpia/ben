@@ -1,5 +1,5 @@
 {
     "require": {
-        "wpackio/enqueue": "^2.0"
+        "timber/timber": "^1.13"
     }
 }
