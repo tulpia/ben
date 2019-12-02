@@ -1,3 +1,14 @@
+// Important stuff
+@import "_reset.scss";
 @import "_fonts.scss";
 @import "_variables.scss";
 @import "_general.scss";
+
+// Components
+@import "./components/_boutons.scss";
+@import "./components/_header.scss";
+@import "./components/_footer.scss";
+@import "./components/_menu.scss";
+
+// Pages
+@import "./pages/_home.scss";
