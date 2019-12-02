@@ -5,7 +5,7 @@
 
 require_once("controllers/PageTravaux.php");
 
-$context = [];
+$context = Timber::get_context();
 $context["fields"] = new PageTravaux();
 
 Timber::render( 'views/listing-travaux.twig', $context );
