@@ -4,7 +4,7 @@
  */
 require_once("controllers/PageContact.php");
 
-$context = [];
+$context = Timber::get_context();
 $context["fields"] = new PageContact();
 
 Timber::render( 'views/contact.twig', $context );

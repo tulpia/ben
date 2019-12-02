@@ -4,8 +4,7 @@
  */
 include_once("controllers/PageHome.php");
 
-$context = [];
-$context["test"] = "hello";
+$context = Timber::get_context();
 $context["fields"] = new PageHome();
 
 Timber::render( 'views/home.twig', $context );
