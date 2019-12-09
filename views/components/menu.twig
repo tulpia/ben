@@ -1,0 +1,30 @@
+<nav class="menu-container">
+    <div class="wrapper">
+        <div class="menu-container__header">
+            <div class="header__logo-container header__logo-container--white">
+                <a href="#">
+                    <img src="{{header.logo["url"]}}" alt="{{header.logo["alt"]}}">
+                </a>
+            </div>
+            <div class="btn-menu btn-menu--close">
+                <div class="lines-container">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <section class="menu-container__content-container">
+            <ul class="content-container__menu">
+                {% for item in menu.items %}
+                    <li class="menu__menu-item">
+                        <a href="{{item.link}}">{{item.title}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <article class="content-container__informations-container">
+                
+            </article>
+        </section>
+    </div>
+    {% include "footer.twig" %}
+</nav>

@@ -33,10 +33,21 @@ class PageHome {
 
     private function getWorks() {
         $block = new \StdClass();
+        $args = [
+            "post_type" => "projets",
+            "posts_per_page" => 4,
+            "order" => "DESC"
+        ];
 
         $block->title = get_field("works_title");
         $block->description = get_field("works_description");
         $block->link = get_field("works_link");
+        $block->posts = get_posts($args);
+
+        foreach ($block->posts as $post) {
+            $post->permalink = get_permalink($post->ID);
+            $post->image = get_field("images", $post->ID)[0];
+        }
 
         return $block;
     }

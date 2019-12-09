@@ -12,9 +12,14 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once("controllers/Header.php");
 require_once("controllers/Footer.php");
 require_once("controllers/Contact.php");
+require_once("controllers/Utilitaires.php");
 
-wp_enqueue_style('site_main_css', get_template_directory_uri() . '/assets/styles/main.css', array(), '1.0', false);
-wp_enqueue_script('site_main_js', get_template_directory_uri() . '/assets/scripts/main.js', array(), '1.0', true);
+function enqueue_scripts() {
+	wp_enqueue_style('site_main_css', get_template_directory_uri() . '/assets/styles/main.css', array(), '1.0', false);
+	wp_enqueue_script('site_main_js', get_template_directory_uri() . '/assets/scripts/main.js', array(), '1.0', true);
+}
+
+add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
 
 // Timber init
 $timber = new Timber\Timber();
@@ -25,6 +30,7 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page("Header");
 	acf_add_options_sub_page("Footer");
 	acf_add_options_sub_page("Contact");
+	acf_add_options_sub_page("Utilitaires");
 }
 
 // SVG
@@ -50,6 +56,7 @@ function add_to_context($context)
     $context['header'] = new Header();
 	$context['footer'] = new Footer();
 	$context['contact'] = new Contact();
+	$context['utils'] = new Utilitaires();
 
     return $context;
 }

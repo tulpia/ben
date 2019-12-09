@@ -1,0 +1,26 @@
+.main-title {
+  font-family: $font;
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 1.15;
+  color: $color-blue;
+}
+
+.title-container {
+  position: relative;
+
+  .title-container__main {
+    position: relative;
+    z-index: 2;
+    color: $color-light-beige;
+    -webkit-text-stroke: 1px $color-blue;
+  }
+
+  .title-container__back {
+    // a remplacer plus tard par le parallax
+    position: absolute;
+    z-index: 1;
+    bottom: -7px;
+    right: -7px;
+  }
+}

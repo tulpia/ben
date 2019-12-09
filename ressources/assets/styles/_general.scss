@@ -1,6 +1,12 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: $color-light-beige;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -18,11 +24,10 @@ body {
 p,
 a,
 li,
-span,
-div {
+span {
   font-family: $font;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.4;
   color: $color-blue;
 }

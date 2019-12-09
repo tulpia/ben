@@ -1,5 +1,110 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
+<section data-router-view='home'>
+    <section class="block-introduction">
+        <div class="wrapper">
+            <div class="block-introduction__side-texts">
+                <ul class="side-texts__left">
+                    {% for text in fields.block_landing.sidetext %}
+                        {% if loop.last %}
+                        <li class="side-texts__list last">
+                            <span class="line"></span>
+                            <a href="{{text["text"]["url"]}}">{{text["text"]["title"]}}</a>
+                        </li>
+                        {% else %}
+                        <li class="side-texts__list">
+                            <a href="{{text["text"]["url"]}}">{{text["text"]["title"]}}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <ul class="side-texts__right">
+                    {% for text in fields.block_landing.sidetext %}
+                        {% if loop.last %}
+                        <li class="side-texts__list last">
+                            <span class="line"></span>
+                            <a href="{{text["text"]["url"]}}">{{text["text"]["title"]}}</a>
+                        </li>
+                        {% else %}
+                        <li class="side-texts__list">
+                            <a href="{{text["text"]["url"]}}">{{text["text"]["title"]}}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="block-introduction__hero-section">
+                <div class="hero-section__text-container">
+                    {% include "components/title-container.twig" with {"title": fields.block_landing.title["title"]} %}
+                    <p class="text-container__subtitle">{{fields.block_landing.title["subtitle"]}}</p>
+                </div>
+            </div>
+            <div class="block-introduction__scroll-container">
+                <div class="scroll-container__line"></div>
+            </div>
+        </div> 
+    </section>
+    <section class="block-about">
+        <div class="wrapper">
+            <article class="block-about__photo-container">
+                <div class="photo-container__lines">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="photo-container__photo">
+                    <img src="{{fields.block_about.image["url"]}}" alt="{{fields.block_about.image["alt"]}}">
+                </div>
+                {% include "components/btn-hand.twig" with {"link": fields.block_about.link["url"], "image": utils.btn_contact["image"], 'text': utils.btn_contact['text']} %}
+            </article>
+            <article class="block-about__content-container">
+                <div class="title-main-container">
+                    {% include "components/title-container.twig" with {"title": fields.block_about.title} %}
+                    <div class="squiggly"></div>
+                </div>
+                <div class="content-container__text">
+                    {{fields.block_about.description}}
+                </div>
+            </article>
+        </div>
+    </section>
+    <section class="block-travaux">
+        <div class="wrapper">
+            <article class="block-travaux__intro">
+                <div class="title-main-container">
+                    {% include "components/title-container.twig" with {"title": fields.block_works.title} %}
+                    <div class="squiggly"></div>
+                </div>
+                <div class="intro__content-container">
+                    {{fields.block_works.description}}
+                </div>
+            </article>
+            <article class="block-travaux__posts">
+                {% for post in fields.block_works.posts %}
+                    <div class="posts__post">
+                        <div class="post__img-container">
+                            <img src="{{post.image["url"]}}" alt="{{post.image["alt"]}}">
+                        </div>
+                        <div class="post__description">
+                            {% include "components/btn-hand.twig" with {'link': post.permalink, 'image': utils.btn_grand['image'], 'text': utils.btn_grand['text']} %}
+                            <p class="description__post-title">{{post.post_title}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="block-travaux__btn-work">
+                    <a href="{{fields.block_works.link["link"]}}">{{fields.block_works.link["title"]}}</a>
+                </div>
+            </article>
+        </div>
+    </section>
+    {% include "components/section_contact/section-contact.twig" %}
+</section>
 {% endblock %}

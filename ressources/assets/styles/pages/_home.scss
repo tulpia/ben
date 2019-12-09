@@ -1,0 +1,133 @@
+.block-introduction {
+  height: 100vh;
+  width: 100vw;
+  background: $color-beige;
+
+  .wrapper {
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .block-introduction__side-texts {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    ul {
+      display: flex;
+      writing-mode: vertical-lr;
+      text-orientation: mixed;
+
+      li {
+        a {
+          color: $color-red;
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          text-decoration: none;
+        }
+
+        &.last {
+          position: relative;
+          padding-top: 15px;
+          margin-top: 10px;
+
+          span {
+            position: absolute;
+            background: $color-red;
+            height: 1px;
+            width: 7px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+          }
+        }
+      }
+
+      &.side-texts__left {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .block-introduction__hero-section {
+    .hero-section__text-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .title-container {
+        text-align: center;
+
+        .main-title {
+          text-align: center;
+          font-size: 86px;
+
+          &.title-container__main {
+            color: $color-beige;
+          }
+        }
+      }
+
+      .text-container__subtitle {
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .block-introduction__scroll-container {
+    position: absolute;
+    height: 40px;
+    width: 25px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid $color-blue;
+    background: transparent;
+    border-radius: 25px;
+
+    .scroll-container__line {
+      position: absolute;
+      top: 7px;
+      left: 50%;
+      transform: translate(-50%, 0px);
+      width: 1px;
+      height: 8px;
+      background: $color-red;
+      opacity: 0;
+      animation: lineAnim 3s infinite;
+      animation-timing-function: $curve;
+    }
+
+    @keyframes lineAnim {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -5px);
+      }
+
+      40% {
+        opacity: 1;
+        transform: translate(-50%, 0px);
+      }
+
+      60% {
+        opacity: 1;
+        transform: translate(-50%, 0px);
+      }
+
+      99% {
+        opacity: 0;
+        transform: translate(-50%, 5px);
+      }
+    }
+  }
+}
