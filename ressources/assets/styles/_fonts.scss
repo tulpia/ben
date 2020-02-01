@@ -41,3 +41,17 @@
   font-weight: 500;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'InriaSerif';
+  src: url('~@fonts/InriaSerif-Regular.eot?#iefix') format('embedded-opentype'),  url('~@fonts/InriaSerif-Regular.woff') format('woff'), url('~@fonts/InriaSerif-Regular.ttf')  format('truetype'), url('~@fonts/InriaSerif-Regular.svg#InriaSerif-Regular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'InriaSerif';
+  src: url('~@fonts/InriaSerif-Bold.eot?#iefix') format('embedded-opentype'),  url('~@fonts/InriaSerif-Bold.woff') format('woff'), url('~@fonts/InriaSerif-Bold.ttf')  format('truetype'), url('~@fonts/InriaSerif-Bold.svg#InriaSerif-Bold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}

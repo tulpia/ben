@@ -2,7 +2,6 @@
   height: 50px;
   width: 50px;
   background: transparent;
-  border: 1px solid $color-blue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +17,7 @@
     div {
       width: 100%;
       height: 1px;
-      background: $color-red;
+      background: white;
 
       &.wave {
         position: relative;
@@ -47,16 +46,16 @@
   position: relative;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 
   .btn-hand__img-container {
-    width: 65%;
-    height: 65%;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    font-size: 50px;
+    text-align: center;
   }
 
   .btn-hand__text-container {
@@ -65,11 +64,23 @@
     position: absolute;
     left: 0;
     top: 0;
+    animation: textAround 8s infinite;
+    animation-timing-function: linear;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    @keyframes textAround {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
   }
 }

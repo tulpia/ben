@@ -3,7 +3,6 @@ import Highway from "@dogstudio/highway";
 
 // Import des Renderers
 import Home from "./_classes/Home";
-import Contact from "./_classes/Contact";
 import About from "./_classes/About";
 import Travaux from "./_classes/Travaux";
 
@@ -15,7 +14,6 @@ const H = new Highway.Core({
   renderers: {
     home: Home,
     about: About,
-    contact: Contact,
     travaux: Travaux
   },
   transitions: {

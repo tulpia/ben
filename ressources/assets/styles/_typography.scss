@@ -3,7 +3,7 @@
   font-weight: 700;
   font-size: 90px;
   line-height: 1.15;
-  color: $color-blue;
+  color: $color-purple;
 }
 
 .title-container {
@@ -12,8 +12,8 @@
   .title-container__main {
     position: relative;
     z-index: 2;
-    color: $color-light-beige;
-    -webkit-text-stroke: 1px $color-blue;
+    color: $color-beige;
+    -webkit-text-stroke: 1px $color-black;
   }
 
   .title-container__back {
@@ -22,5 +22,30 @@
     z-index: 1;
     bottom: -7px;
     right: -7px;
+    color: $color-purple;
+  }
+}
+
+.text-alt {
+  font-family: $font;
+  font-size: 20px;
+  color: $color-black;
+  line-height: 1.75;
+  font-weight: 400;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+.text {
+  font-family: $font-alt;
+  font-size: 20px;
+  color: $color-black;
+  line-height: 1.75;
+  font-weight: 400;
+
+  strong {
+    font-weight: 600;
   }
 }
