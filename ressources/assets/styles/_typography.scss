@@ -49,3 +49,18 @@
     font-weight: 600;
   }
 }
+
+.scrolling-title {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  writing-mode: vertical-lr;
+
+  .text {
+    font-size: 500px;
+    color: #e6e2e6;
+    opacity: 0.1;
+    line-height: 0.6;
+  }
+}

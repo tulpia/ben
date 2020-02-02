@@ -1,0 +1,89 @@
+.page--listing-travaux {
+  background: $color-magenta;
+  width: 100vw;
+
+  .block-title {
+    padding-top: $spacingDesktop;
+    position: relative;
+
+    &__title-container {
+      display: flex;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .select-category {
+      padding-left: initial;
+    }
+
+    .scrolling-title {
+      top: $spacingDesktop;
+      height: 3000px;
+    }
+  }
+
+  .block-travaux {
+    margin-top: 180px;
+
+    .small-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .travaux-post {
+        display: block;
+        height: 380px;
+        position: relative;
+        z-index: 1;
+        width: 60%;
+
+        &__index-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+          mix-blend-mode: exclusion;
+          transform: translate(-50%, -50%);
+
+          p {
+            color: white;
+            font-size: 125px;
+          }
+        }
+
+        &__image-container {
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        &:nth-child(even) {
+          align-self: flex-end;
+          z-index: 2;
+
+          .travaux-post__index-container {
+            right: 0;
+            left: initial;
+            transform: translate(50%, -50%);
+          }
+
+          .travaux-post__image-container {
+            left: initial;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .block-contact {
+    margin-top: 420px;
+  }
+}

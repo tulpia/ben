@@ -10,9 +10,9 @@ class DefaultTransition extends Highway.Transition {
     document.body.classList.remove("page-loading");
 
     from.remove();
-    TweenMax.set(window, {
-      scrollTo: 0
-    });
+    // TweenMax.set(window, {
+    //   scrollTo: 0
+    // });
 
     const tl = new TimelineLite();
     tl.fromTo(

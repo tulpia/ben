@@ -20,5 +20,3 @@ const H = new Highway.Core({
     default: DefaultTransition
   }
 });
-
-console.log(H);
