@@ -1,0 +1,134 @@
+.page--single-projets {
+  .block-introduction {
+    margin-top: 180px;
+    height: auto;
+
+    .small-wrapper {
+      position: relative;
+    }
+
+    .block-introduction__content-container {
+      position: relative;
+      z-index: 2;
+
+      .content-container__title-container {
+        display: flex;
+        margin-top: 140px;
+
+        .main-title {
+          font-size: 145px;
+        }
+      }
+
+      .content-container__details-container {
+        display: flex;
+        margin-top: 60px;
+
+        .details-container {
+          &__intro {
+            font-size: 17px;
+            opacity: 0.4;
+          }
+          &__title {
+            font-size: 20px;
+          }
+
+          &:last-child {
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  .block-introduction__image-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .block-introduction__scroll {
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    text-transform: uppercase;
+    opacity: 0.4;
+    z-index: 3;
+    font-size: 16px;
+  }
+
+  .block-contenu {
+    margin-top: 300px;
+
+    .contenu {
+      .contenu__image-container {
+        width: 100%;
+        height: auto;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .contenu__title-container {
+        font-size: 72px;
+        padding-top: 25px;
+        line-height: 86px;
+        border-top: 1px solid $color-black;
+        margin-bottom: 45px;
+      }
+
+      .contenu__texts-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .text {
+          flex: 1;
+          margin-right: 50px;
+        }
+      }
+
+      &.contenu--Image_text {
+        .contenu__image-container {
+          margin-bottom: 65px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 65px;
+      }
+    }
+  }
+
+  .block-other-works {
+    margin-top: 240px;
+    padding: 150px 0 120px 0;
+    background: $color-magenta;
+    display: flex;
+    position: relative;
+
+    &__title-container {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    .swiper-container {
+      width: 100%;
+    }
+  }
+}

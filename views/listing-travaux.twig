@@ -1,29 +1,30 @@
 {% extends "base.twig" %}
-
 {% block content %}
-<section class="page page--listing-travaux" data-router-view='travaux'>
+<section class="page page--listing-travaux" data-router-view="travaux">
     <section class="block-title">
         <div class="small-wrapper">
             <div class="block-title__title-container">
-                {% include "components/TitleContainer.twig" with {"title": fields.block_introduction.title} %}
+                {% include "components/TitleContainer.twig" with {"title":
+        fields.block_introduction.title} %}
             </div>
-            {% include "components/SelectCategory.twig" with {"categories": fields.block_contenu.categories} %}
+            {% include "components/SelectCategory.twig" with {"categories":
+      fields.block_contenu.categories} %}
         </div>
         <div class="scrolling-title">
-            <p class="text">{{fields.block_introduction.title}}</p>
+            <p class="text">{{ fields.block_introduction.title }}</p>
         </div>
     </section>
     <section class="block-travaux">
         <div class="small-wrapper">
             {% for post in fields.block_contenu.posts %}
-                <a href="{{post.permalink}}" class="travaux-post">
-                    <div class="travaux-post__index-container">
-                        <p class="text travaux-count">{{post.index}}</p>
-                    </div>
-                    <div class="travaux-post__image-container">
-                        <img src="{{post.image["url"]}}" alt="{{post.image["alt"]}}">
-                    </div>
-                </a>
+            <a href="{{ post.permalink }}" class="travaux-post">
+                <div class="travaux-post__index-container">
+                    <p class="text travaux-count">{{ post.index }}</p>
+                </div>
+                <div class="travaux-post__image-container">
+                    <img src="{{ post.image["url"] }}" alt="{{ post.image["alt"] }}">
+                </div>
+            </a>
             {% endfor %}
         </div>
     </section>

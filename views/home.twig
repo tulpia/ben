@@ -63,7 +63,7 @@
                 {% include "components/SelectCategory.twig" with {"categories": fields.block_works.categories} %}
                 <div class="block-works__posts-container">
                     {% for post in fields.block_works.posts %}
-                        <article class="work-post">
+                        <a href="{{post.permalink}}" class="work-post">
                             <div class="work-post__image-container">
                                 <img src="{{post.image["url"]}}" alt="{{post.image["alt"]}}">
                             </div>
@@ -75,7 +75,7 @@
                                     <span class="post-count__total">05</span>
                                 </div>
                             </div>
-                        </article>
+                        </a>
                     {% endfor %}
                 </div>
 				</div>
