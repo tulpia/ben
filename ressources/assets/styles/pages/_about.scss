@@ -1,0 +1,69 @@
+.page--about {
+    position: relative;
+    background: $color-magenta;
+
+    .title-container {
+        margin-bottom: 35px;
+    }
+
+    .block-introduction {
+        position: relative;
+        margin-bottom: 225px;
+
+        &__upper {
+            margin-top: 35vh;
+            width: 100%;
+            position: relative;
+
+            .upper__content-container {
+                padding-top: 110px;
+                position: relative;
+                z-index: 2;
+
+                .text {
+                    font-size: 46px;
+                    line-height: 1.4;
+                    font-weight: 600;
+                }
+            }
+
+            .upper__image-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 43%;
+                height: 840px;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+        }
+
+        .line {
+            width: 95%;
+            margin: 280px 0 170px 0;
+            height: 1px;
+            mix-blend-mode: exclusion;
+            position: relative;
+            z-index: 5;
+            background: $color-light-beige;
+        }
+
+        &__lower {
+            width: 55%;
+
+            a {
+                display: block;
+                margin-top: 35px;
+            }
+        }
+    }
+
+    .block-contenu {
+        margin-bottom: 300px;
+    }
+}

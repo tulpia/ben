@@ -12,9 +12,12 @@
 @import "./components/_menu.scss";
 @import "./components/_section-contact.scss";
 @import "./components/_select-category";
+@import "./components/_scrolling-title.scss";
+@import "./components/_block-about.scss";
 @import "../../node_modules/swiper/swiper.scss";
 
 // Pages
 @import "./pages/_home.scss";
 @import "./pages/_travaux.scss";
 @import "./pages/_single-projets.scss";
+@import "./pages/_about.scss";

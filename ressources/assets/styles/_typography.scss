@@ -1,13 +1,14 @@
 .main-title {
   font-family: $font;
   font-weight: 700;
-  font-size: 90px;
+  font-size: 110px;
   line-height: 1.15;
   color: $color-purple;
 }
 
 .title-container {
   position: relative;
+  display: inline-block;
 
   .title-container__main {
     position: relative;
@@ -36,6 +37,10 @@
   strong {
     font-weight: 600;
   }
+
+  &.text-alt--white {
+    color: $color-light-beige;
+  }
 }
 
 .text {
@@ -45,22 +50,20 @@
   line-height: 1.75;
   font-weight: 400;
 
+  a {
+    text-decoration: underline;
+    opacity: 0.5;
+  }
+
   strong {
     font-weight: 600;
   }
-}
 
-.scrolling-title {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  writing-mode: vertical-lr;
+  &.text--white {
+    color: $color-light-beige;
 
-  .text {
-    font-size: 500px;
-    color: #e6e2e6;
-    opacity: 0.1;
-    line-height: 0.6;
+    a {
+      color: $color-light-beige;
+    }
   }
 }

@@ -8,7 +8,7 @@
 
     &__title-container {
         display: flex;
-        transform: translateY(-65%);
+        transform: translateY(-40%);
     }
 
     &__contacts {
@@ -35,15 +35,18 @@
                             max-height: 25px;
                         }
                     }
+
                     a {
                         color: $color-purple;
                         font-size: 18px;
                     }
+
                     &:not(:last-child) {
                         margin-bottom: 20px;
                     }
                 }
             }
+
             &:not(:last-child) {
                 margin-right: 150px;
             }

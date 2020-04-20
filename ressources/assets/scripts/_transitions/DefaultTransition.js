@@ -14,18 +14,20 @@ class DefaultTransition extends Highway.Transition {
     //   scrollTo: 0
     // });
 
+    console.log("transition");
+
     const tl = new TimelineLite();
     tl.fromTo(
       to,
       0.4,
       {
-        opacity: 0
+        opacity: 0,
       },
       {
         opacity: 1,
         onComplete: () => {
           done();
-        }
+        },
       }
     );
   }
@@ -37,16 +39,16 @@ class DefaultTransition extends Highway.Transition {
       onComplete: () => {
         // quand le done est appelé, la transition
         done();
-      }
+      },
     });
     tl.fromTo(
       from,
       0.4,
       {
-        opacity: 1
+        opacity: 1,
       },
       {
-        opacity: 0
+        opacity: 0,
       }
     );
   }
