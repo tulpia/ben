@@ -16,9 +16,13 @@ const H = new Highway.Core({
     home: Home,
     about: About,
     travaux: Travaux,
-    single_projets: SingleProjets
+    single_projets: SingleProjets,
   },
   transitions: {
-    default: DefaultTransition
-  }
+    default: DefaultTransition,
+  },
+});
+
+H.on("NAVIGATE_IN", () => {
+  console.log("sds");
 });

@@ -37,3 +37,16 @@ a {
   text-decoration: none;
   color: $color-black;
 }
+
+.transition-loader {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $color-magenta;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+}
