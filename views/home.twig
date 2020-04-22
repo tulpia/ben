@@ -63,7 +63,7 @@
 			{% include "components/SelectCategory.twig" with {"categories": fields.block_works.categories} %}
 			<div class="block-works__posts-container">
 				{% for post in fields.block_works.posts %}
-				<a href="{{post.permalink}}" class="work-post">
+				<a href="{{post.permalink}}" class="work-post {{ post.category.slug == "graphisme" ? null : "is-hidden" }}" data-category="{{ post.category.slug }}" style="opacity: {{ post.category.slug == "graphisme" ? "1" : "0" }}">
 					<div class="work-post__image-container">
 						<img src="{{post.image["url"]}}" alt="{{post.image["alt"]}}">
 					</div>

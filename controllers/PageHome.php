@@ -52,7 +52,7 @@ class PageHome {
         foreach ($block->posts as $post) {
             $post->permalink = get_permalink($post->ID);
             $post->image = get_field("images", $post->ID);
-            $post->category = get_the_category($post->ID);
+            $post->category = get_the_category($post->ID)[0];
         }
 
         return $block;

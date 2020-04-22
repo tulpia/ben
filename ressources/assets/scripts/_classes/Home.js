@@ -11,17 +11,15 @@ class Home extends Highway.Renderer {
      * FITLRE
      */
     const filtreContainer = document.querySelector(".select-category");
-    const fitlreArguments = filtreContainer.querySelectorAll(
+    const filtreArguments = filtreContainer.querySelectorAll(
       ".select-category__category"
     );
-    const fitlreResultsContainer = filtreContainer.querySelector(
-      ".block-works__posts-container"
-    );
+    const filtrePosts = document.querySelectorAll(".work-post");
 
     const filtre = new WorksFilter(
       filtreContainer,
-      fitlreArguments,
-      fitlreResultsContainer
+      filtreArguments,
+      filtrePosts
     );
     filtre.init();
   }
