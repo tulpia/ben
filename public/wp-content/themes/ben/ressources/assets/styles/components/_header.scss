@@ -1,0 +1,27 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  padding-top: 40px;
+  width: 100vw;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__leftPart {
+      a {
+        display: block;
+        height: 45px;
+        width: auto;
+
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+  }
+}

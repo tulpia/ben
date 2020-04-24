@@ -1,0 +1,28 @@
+// Important stuff
+@import "_reset.scss";
+@import "_fonts.scss";
+@import "_variables.scss";
+@import "_general.scss";
+@import "_typography.scss";
+@import "_locomotive-scroll.scss";
+
+// Components
+@import "./components/_boutons.scss";
+@import "./components/_header.scss";
+@import "./components/_footer.scss";
+@import "./components/_menu.scss";
+@import "./components/_section-contact.scss";
+@import "./components/_select-category";
+@import "./components/_scrolling-title.scss";
+@import "./components/_block-about.scss";
+@import "./components/_title-container.scss";
+@import "../../node_modules/swiper/swiper.scss";
+
+// Pages
+@import "./pages/_home.scss";
+@import "./pages/_travaux.scss";
+@import "./pages/_single-projets.scss";
+@import "./pages/_about.scss";
+
+// Other stuff
+@import "_menu.scss";
