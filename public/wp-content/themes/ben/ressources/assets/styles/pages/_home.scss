@@ -186,6 +186,11 @@
           left: 0;
           display: flex;
           z-index: 2;
+
+          .text-container__post-count {
+            margin-left: 25px;
+            font-weight: 500;
+          }
         }
 
         &:not(:last-child) {

@@ -10,8 +10,9 @@ import SingleProjets from "./_classes/SingleProjets";
 // Import des Transitions
 import DefaultTransition from "./_transitions/DefaultTransition";
 
-// Import des outils
+// Import des outils/animations
 import Menu from "./_tools/_menu.js";
+import Cursor from "./_animation/_cursor";
 
 // Import des dependances
 import LocomotiveScroll from "locomotive-scroll";
@@ -30,13 +31,18 @@ const H = new Highway.Core({
 });
 
 let scroll = null;
+let cursor = null;
 
 H.on("NAVIGATE_OUT", () => {
   scroll.scrollTo(".page");
+  cursor.destroyLinks();
 });
 
 H.on("NAVIGATE_END", () => {
   scroll.update();
+
+  const links = document.querySelectorAll("a");
+  cursor.hoverEffects(links);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -55,4 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
     smooth: true,
     inertia: 0.5,
   });
+
+  // CURSEUR
+  const bigCursor = document.querySelector(".big-cursor");
+  const smallCursors = [...document.querySelectorAll(".inner-cursor")];
+  const links = document.querySelectorAll("a");
+  cursor = new Cursor(bigCursor, smallCursors, links);
+
+  cursor.init();
 });

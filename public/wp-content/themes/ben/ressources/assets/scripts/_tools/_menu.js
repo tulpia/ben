@@ -71,7 +71,9 @@ class Menu {
   }
 
   events() {
-    this.btnOpenMenu.addEventListener("click", () => {
+    this.btnOpenMenu.addEventListener("click", (e) => {
+      e.preventDefault();
+
       if (!this.container.classList.contains("is-shown")) {
         this.container.classList.add("is-shown");
         this.header.classList.add("is-menu-opened");
@@ -82,7 +84,9 @@ class Menu {
       }
     });
 
-    this.btnCloseMenu.addEventListener("click", () => {
+    this.btnCloseMenu.addEventListener("click", (e) => {
+      e.preventDefault();
+
       if (this.container.classList.contains("is-shown")) {
         this.animateMenuOut();
         this.animateBtnClose(false);
