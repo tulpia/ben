@@ -2,7 +2,10 @@
 /**
  * Template Name: Single projets
  */
-include_once("controllers/SingleProjets.php");
+namespace App\Entities;
+
+use App\App;
+use Timber\Timber;
 
 $context = Timber::get_context();
 $context["fields"] = new SingleProjets();

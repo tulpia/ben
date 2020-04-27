@@ -27,5 +27,10 @@
         </div>
     </section>
     {% include "components/SectionContact/SectionContact.twig" %}
+    <footer>
+        {% block footer %}
+        {% include "footer.twig" %}
+        {% endblock %}
+    </footer>
 </section>
 {% endblock %}

@@ -1,6 +1,7 @@
 <article class="block-about-content {{ reversed ? "block-about-content--reversed" : null }} {{ classes }}">
     <div class="block-about-content__image-container" data-scroll data-scroll-speed="2">
         {# Mettre les pictos ici quand on les aura #}
+        <img src="{{ image["url"] }}" alt="{{ image["alt"] }}">
     </div>
     <div class="block-about-content__content-container">
         <p class="text-alt text-alt--white content-container__count">{{ count }}/04</p>

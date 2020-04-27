@@ -69,7 +69,7 @@
 					</div>
 					<div class="work-post__text-container" data-scroll data-scroll-speed="2">
 						{% include "components/TitleContainer.twig" with {"title": post.post_title} %}
-						<div class="text-container__post-count">
+						<div class="text-alt text-alt--white text-container__post-count">
 							<span class="post-count__post">01</span>
 							/
 							<span class="post-count__total">05</span>
@@ -89,5 +89,10 @@
 		</div>
 	</section>
 	{% include "components/SectionContact/SectionContact.twig" %}
+	<footer>
+		{% block footer %}
+		{% include "footer.twig" %}
+		{% endblock %}
+	</footer>
 </section>
 {% endblock %}

@@ -2,8 +2,10 @@
 /**
  * Template Name: Travaux
  */
+namespace App\Entities;
 
-require_once("controllers/PageTravaux.php");
+use App\App;
+use Timber\Timber;
 
 $context = Timber::get_context();
 $context["fields"] = new PageTravaux();

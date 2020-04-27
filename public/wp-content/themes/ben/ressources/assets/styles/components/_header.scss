@@ -23,5 +23,18 @@ header {
         }
       }
     }
+
+    .header__rightPart {
+      position: relative;
+    }
+  }
+
+  &.is-menu-opened {
+    .header__rightPart {
+      .btn-menu {
+        opacity: 0;
+        transition: opacity 150ms linear;
+      }
+    }
   }
 }

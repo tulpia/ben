@@ -42,10 +42,11 @@ H.on("NAVIGATE_END", () => {
 document.addEventListener("DOMContentLoaded", () => {
   // MENU
   const menuContainer = document.querySelector(".menu");
-  const menuItems = menuContainer.querySelectorAll(".menu-container__item");
+  const menuItems = menuContainer.querySelectorAll(".item__wrapper");
   const menuLinks = menuContainer.querySelectorAll(".title-container");
+  const menuHeader = document.querySelector("header");
 
-  const menu = new Menu(menuContainer, menuItems, menuLinks);
+  const menu = new Menu(menuContainer, menuItems, menuLinks, menuHeader);
   menu.init();
 
   // SMOOTHSCROLL

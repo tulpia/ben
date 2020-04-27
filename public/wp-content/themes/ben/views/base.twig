@@ -22,15 +22,8 @@
         {% block content %}
         content goes here
         {% endblock %}
-        <footer>
-            {% block footer %}
-            {% include "footer.twig" %}
-            {% endblock %}
-            {{ function('wp_footer') }}
-        </footer>
     </main>
-    
-
+    {{ function('wp_footer') }}
 </body>
 
 </html>
