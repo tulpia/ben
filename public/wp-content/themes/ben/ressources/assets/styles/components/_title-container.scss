@@ -1,0 +1,46 @@
+.title-container {
+  position: relative;
+  display: inline-block;
+
+  .title-container__main {
+    position: relative;
+    z-index: 2;
+    color: $color-beige;
+    -webkit-text-stroke: 1px $color-black;
+  }
+
+  .title-container__back {
+    // a remplacer plus tard par le parallax
+    position: absolute;
+    z-index: 1;
+    bottom: -7px;
+    right: -7px;
+    color: $color-purple;
+  }
+
+  &.title-container--menu {
+    // opacity: 0.5;
+
+    .title-container__back {
+      bottom: 0;
+      right: 0;
+      div {
+        opacity: 0.5;
+        transition: opacity 250ms linear;
+      }
+    }
+
+    .title-container__main {
+      div {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &.is-hovered {
+    .title-container__back {
+      opacity: 1;
+      transition: opacity 250ms linear;
+    }
+  }
+}

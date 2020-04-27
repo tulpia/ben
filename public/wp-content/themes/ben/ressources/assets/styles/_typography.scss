@@ -1,0 +1,48 @@
+.main-title {
+  font-family: $font;
+  font-weight: 700;
+  font-size: 110px;
+  line-height: 1.15;
+  color: $color-purple;
+}
+
+.text-alt {
+  font-family: $font;
+  font-size: 20px;
+  color: $color-black;
+  line-height: 1.75;
+  font-weight: 400;
+
+  strong {
+    font-weight: 600;
+  }
+
+  &.text-alt--white {
+    color: $color-light-beige;
+  }
+}
+
+.text {
+  font-family: $font-alt;
+  font-size: 20px;
+  color: $color-black;
+  line-height: 1.75;
+  font-weight: 400;
+
+  a {
+    text-decoration: underline;
+    opacity: 0.5;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  &.text--white {
+    color: $color-light-beige;
+
+    a {
+      color: $color-light-beige;
+    }
+  }
+}
