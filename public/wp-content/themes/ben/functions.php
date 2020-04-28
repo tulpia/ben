@@ -22,6 +22,7 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page("Footer");
 	acf_add_options_sub_page("Contact");
 	acf_add_options_sub_page("Utilitaires");
+	acf_add_options_sub_page("Transition");
 }
 
 // SVG
@@ -48,6 +49,7 @@ function add_to_context($context)
 	$context['footer'] = new \App\Entities\Footer();
 	$context['contact'] = new \App\Entities\Contact();
 	$context['utils'] = new \App\Entities\Utilitaires();
+	$context['transition'] = new \App\Entities\Transition();
 
     return $context;
 }

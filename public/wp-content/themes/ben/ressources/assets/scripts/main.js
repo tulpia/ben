@@ -34,9 +34,11 @@ let scroll = null;
 let cursor = null;
 
 H.on("NAVIGATE_OUT", () => {
-  scroll.scrollTo(".page");
   cursor.destroyLinks();
+  scroll.scrollTo(".page");
 });
+
+H.on("NAVIGATE_IN", () => {});
 
 H.on("NAVIGATE_END", () => {
   scroll.update();

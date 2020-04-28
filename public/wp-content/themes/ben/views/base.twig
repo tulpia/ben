@@ -16,13 +16,21 @@
     </header>
     {% include "menu.twig" %}
 
-    <div class="transition-loader"></div>
     <div class="cursor big-cursor"></div>
     <div class="cursor inner-cursor inner-cursor--1"></div>
     <div class="cursor inner-cursor inner-cursor--2"></div>
     <div class="cursor inner-cursor inner-cursor--3"></div>
     <div class="cursor inner-cursor inner-cursor--4"></div>
     <div class="cursor inner-cursor inner-cursor--5"></div>
+
+    <div class="transition-layer"></div>
+    <div class="transition-default">
+        <div class="transition-default__images-container">
+            {% for item in transition.images %}
+                <img src="{{ item["url"] }}" alt="{{ item["alt"] }}">
+            {% endfor %}
+        </div>
+    </div>
 
     <main data-router-wrapper data-scroll-container>
         {% block content %}
