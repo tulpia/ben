@@ -29,21 +29,15 @@ class PageTravaux extends Post  {
 
         $block->posts = get_posts($args);
 
-        $i = 0;
         foreach ($block->posts as $post) {
-            $i++;
-            if ($i < 10) {
-                $i = "0" . $i;
-            }
             $post->permalink = get_permalink($post->ID);
             $post->image = get_field("images", $post->ID);
-            $post->category = get_the_category($post->ID);
-            $post->index = $i;
+            $post->category = get_the_category($post->ID)[0];
         }
 
         $block->categories = get_categories(array(
             'orderby' => 'name',
-            'order'   => 'DESC'
+            'order'   => 'ASC'
         ));
     
         return $block;

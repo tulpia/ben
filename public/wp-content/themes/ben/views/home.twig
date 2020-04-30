@@ -2,7 +2,7 @@
 
 {% block content %}
 <section class="page page--home" data-router-view='home'>
-	<section class="block-introduction">
+	<section class="block-introduction is-hidden">
 		<div class="block-introduction__image-container">
 			<img src="{{fields.block_landing.image["url"]}}" alt="{{fields.block_landing.image["alt"]}}">
 		</div>
@@ -39,7 +39,7 @@
 			</div>
 			<div class="block-introduction__hero-section">
 				<div class="hero-section__text-container">
-					{% include "components/TitleContainer.twig" with {"title": fields.block_landing.title["title"]} %}
+					{% include "components/TitleContainer.twig" with {"title": fields.block_landing.title["title"], "classes": "title-home", "animated": false} %}
 				</div>
 			</div>
 			<div class="block-introduction__scroll-container">
@@ -47,28 +47,30 @@
 			</div>
 		</div>
 	</section>
-	<section class="block-about">
+	<section class="block-about" data-scroll data-scroll-offset="25%" >
 		<div class="small-wrapper">
 			<article class="block-about__img-container">
 				<img src="{{fields.block_about.image["url"]}}" alt="{{fields.block_about.image["alt"]}}">
 			</article>
 			<article class="text block-about__content-container">
-				{{fields.block_about.description}}
-				{% include "components/BtnHand.twig" with {"link": fields.block_about.link["url"], "image": "👌", "text": fields.block_about.btn} %}
+				<div class="content-container__text">
+					{{fields.block_about.description}}
+				</div>
+				{% include "components/BtnHand.twig" with {"link": fields.block_about.link["url"], "text": fields.block_about.btn} %}
 			</article>
 		</div>
 	</section>
-	<section class="block-works">
+	<section class="block-works" data-scroll data-scroll-offset="25%">
 		<div class="small-wrapper">
 			{% include "components/SelectCategory.twig" with {"categories": fields.block_works.categories} %}
 			<div class="block-works__posts-container">
 				{% for post in fields.block_works.posts %}
-				<a href="{{post.permalink}}" class="work-post {{ post.category.slug == "graphisme" ? null : "is-hidden" }}" data-category="{{ post.category.slug }}" style="opacity: {{ post.category.slug == "graphisme" ? "1" : "0" }}">
+				<a href="{{post.permalink}}" class="work-post {{ post.category.slug == "graphisme" ? "is-first-shown" : "is-hidden" }}" data-category="{{ post.category.slug }}" style="opacity: {{ post.category.slug == "graphisme" ? "1" : "0" }}">
 					<div class="work-post__image-container">
 						<img src="{{post.image["url"]}}" alt="{{post.image["alt"]}}">
 					</div>
 					<div class="work-post__text-container" data-scroll data-scroll-speed="2">
-						{% include "components/TitleContainer.twig" with {"title": post.post_title} %}
+						{% include "components/TitleContainer.twig" with {"title": post.post_title, "offset": "25%", "animated": true} %}
 						<div class="text-alt text-alt--white text-container__post-count">
 							<span class="post-count__post">01</span>
 							/

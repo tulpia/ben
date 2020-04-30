@@ -1,10 +1,11 @@
 import { gsap } from "gsap";
 
 class WorksFilter {
-  constructor(container, filtres, posts) {
+  constructor(container, filtres, posts, counter = false) {
     this.container = container;
     this.filtres = filtres;
     this.posts = posts;
+    this.counter = counter;
 
     this.categorySelected = "graphisme";
   }
@@ -56,6 +57,13 @@ class WorksFilter {
           }
         });
 
+        // On enleve la classe qui permet d'aligner les postes a droite
+        this.posts.forEach((post) => {
+          if (post.classList.contains("is-aligned-right")) {
+            post.classList.remove("is-aligned-right");
+          }
+        });
+
         this.animateIn(filter);
       },
     });
@@ -68,12 +76,38 @@ class WorksFilter {
   animateIn(filter) {
     const postsToAnimate = [];
 
+    let counter = 1;
+
     this.posts.forEach((post) => {
+      if (post.classList.contains("is-first-shown")) {
+        post.classList.remove("is-first-shown");
+      }
       if (post.getAttribute("data-category") === filter) {
         post.classList.remove("is-hidden");
         postsToAnimate.push(post);
+
+        if (this.counter) {
+          const postCounter = post.querySelector(".travaux-count");
+
+          if (counter < 9) {
+            postCounter.textContent = `0${counter}`;
+          } else {
+            postCounter.textContent = counter;
+          }
+          counter++;
+        }
       }
     });
+
+    // Sur la page travaux, il faut aligner a droite tous les posts pair
+    // (impossible de le faire en css normal)
+    if (this.counter) {
+      for (let i = 1; i < postsToAnimate.length; i++) {
+        if (i % 2 === 1) {
+          postsToAnimate[i].classList.add("is-aligned-right");
+        }
+      }
+    }
 
     gsap.fromTo(
       postsToAnimate,
@@ -90,6 +124,7 @@ class WorksFilter {
     );
 
     this.makeActive();
+    this.sendEvent();
   }
 
   changeSelectedCategory(filter) {
@@ -104,6 +139,10 @@ class WorksFilter {
     });
 
     this.categorySelected = filter;
+  }
+
+  sendEvent() {
+    document.dispatchEvent(new CustomEvent("categoryLoaded", {}));
   }
 
   makeInactive() {

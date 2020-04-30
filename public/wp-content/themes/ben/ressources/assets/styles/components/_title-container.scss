@@ -7,6 +7,10 @@
     z-index: 2;
     color: $color-beige;
     -webkit-text-stroke: 1px $color-black;
+
+    div {
+      opacity: 0;
+    }
   }
 
   .title-container__back {
@@ -16,6 +20,10 @@
     bottom: -7px;
     right: -7px;
     color: $color-purple;
+
+    div {
+      opacity: 0;
+    }
   }
 
   &.title-container--menu {

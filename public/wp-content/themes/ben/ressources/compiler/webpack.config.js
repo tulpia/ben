@@ -12,13 +12,13 @@ const {
   entry,
   devtool,
   outputFolder,
-  publicFolder
+  publicFolder,
 } = require("./config");
 
 const HMR = require("./hmr");
 const getPublicPath = require("./publicPath");
 
-module.exports = options => {
+module.exports = (options) => {
   const { dev } = options;
   const hmr = HMR.getClient();
 
@@ -28,18 +28,18 @@ module.exports = options => {
     context: path.resolve(context),
     entry: {
       "styles/main": dev ? [hmr, entry.styles] : entry.styles,
-      "scripts/main": dev ? [hmr, entry.scripts] : entry.scripts
+      "scripts/main": dev ? [hmr, entry.scripts] : entry.scripts,
     },
     resolve: {
       alias: {
         "@img": path.resolve(__dirname, "../assets/images"),
-        "@fonts": path.resolve(__dirname, "../assets/fonts")
-      }
+        "@fonts": path.resolve(__dirname, "../assets/fonts"),
+      },
     },
     output: {
       path: path.resolve(outputFolder),
       publicPath: getPublicPath(publicFolder),
-      filename: "[name].js"
+      filename: "[name].js",
     },
     module: {
       rules: [
@@ -48,8 +48,8 @@ module.exports = options => {
           exclude: /(node_modules|bower_components)\/(?!(dom7|ssr-window|swiper)\/).*/,
           use: [
             ...(dev ? [{ loader: "cache-loader" }] : []),
-            { loader: "babel-loader" }
-          ]
+            { loader: "babel-loader" },
+          ],
         },
         {
           test: /\.(sa|sc|c)ss$/,
@@ -63,12 +63,12 @@ module.exports = options => {
               options: {
                 ident: "postcss",
                 sourceMap: dev,
-                config: { ctx: { dev } }
-              }
+                config: { ctx: { dev } },
+              },
             },
             { loader: "resolve-url-loader", options: { sourceMap: dev } },
-            { loader: "sass-loader" }
-          ]
+            { loader: "sass-loader" },
+          ],
         },
         {
           test: /\.(ttf|otf|eot|woff2?|png|jpe?g|gif|svg|ico|mp4|webm)$/,
@@ -76,41 +76,41 @@ module.exports = options => {
             {
               loader: "file-loader",
               options: {
-                name: "/[path][name].[ext]"
-              }
-            }
-          ]
-        }
-      ]
+                name: "/[path][name].[ext]",
+              },
+            },
+          ],
+        },
+      ],
     },
     plugins: [
       ...(dev
         ? [
             new webpack.HotModuleReplacementPlugin(),
-            new FriendlyErrorsWebpackPlugin()
+            new FriendlyErrorsWebpackPlugin(),
           ]
         : [
             new MiniCssExtractWebpackPlugin({
-              filename: "[name].css"
+              filename: "[name].css",
             }),
             new NonJsEntryCleanupPlugin({
               context: "styles",
               extensions: "js",
-              includeSubfolders: true
+              includeSubfolders: true,
             }),
             new CleanWebpackPlugin(),
             new CopyWebpackPlugin(
               [
                 {
                   from: path.resolve(`${context}/**/*`),
-                  to: path.resolve(outputFolder)
-                }
+                  to: path.resolve(outputFolder),
+                },
               ],
               {
-                ignore: ["*.js", "*.ts", "*.scss", "*.css"]
+                ignore: ["*.js", "*.ts", "*.scss", "*.css"],
               }
-            )
-          ])
-    ]
+            ),
+          ]),
+    ],
   };
 };

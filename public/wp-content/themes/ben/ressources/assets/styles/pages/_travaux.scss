@@ -6,6 +6,10 @@
     padding-top: $spacingDesktop;
     position: relative;
 
+    &.is-hidden {
+      opacity: 0;
+    }
+
     &__title-container {
       display: flex;
       margin-bottom: 40px;
@@ -64,7 +68,7 @@
           }
         }
 
-        &:nth-child(even) {
+        &.is-first-shown:nth-of-type(even) {
           align-self: flex-end;
           z-index: 2;
 
@@ -78,6 +82,26 @@
             left: initial;
             right: 0;
           }
+        }
+
+        &.is-aligned-right {
+          align-self: flex-end;
+          z-index: 2;
+
+          .travaux-post__index-container {
+            right: 0;
+            left: initial;
+            transform: translate(50%, -50%);
+          }
+
+          .travaux-post__image-container {
+            left: initial;
+            right: 0;
+          }
+        }
+
+        &.is-hidden {
+          display: none;
         }
       }
     }

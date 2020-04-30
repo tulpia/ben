@@ -38,11 +38,8 @@ H.on("NAVIGATE_OUT", () => {
   scroll.scrollTo(".page");
 });
 
-H.on("NAVIGATE_IN", () => {});
-
 H.on("NAVIGATE_END", () => {
   scroll.update();
-
   const links = document.querySelectorAll("a");
   cursor.hoverEffects(links);
 });
@@ -61,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   scroll = new LocomotiveScroll({
     el: document.querySelector("[data-scroll-container]"),
     smooth: true,
-    inertia: 0.5,
+    inertia: 0.75,
   });
 
   // CURSEUR
@@ -71,4 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
   cursor = new Cursor(bigCursor, smallCursors, links);
 
   cursor.init();
+});
+
+document.addEventListener("categoryLoaded", () => {
+  scroll.update();
 });
