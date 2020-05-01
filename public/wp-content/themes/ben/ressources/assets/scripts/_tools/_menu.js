@@ -18,6 +18,7 @@ class Menu {
     this.linkEvents();
     this.initTimelineMenu();
     this.events();
+    this.closeOnTransition();
   }
 
   initSplits() {
@@ -178,6 +179,18 @@ class Menu {
       this.tlBtn.timeScale(1.6).reverse();
       this.btnCloseMenu.classList.remove("is-active");
     }
+  }
+
+  closeOnTransition() {
+    document.addEventListener("menuOpen", () => {
+      this.animateMenuOut();
+      this.animateBtnClose(false);
+      setTimeout(() => {
+        this.container.classList.remove("is-shown");
+        this.header.classList.remove("is-menu-opened");
+        document.dispatchEvent(new CustomEvent("menuClosed", {}));
+      }, 900);
+    });
   }
 }
 

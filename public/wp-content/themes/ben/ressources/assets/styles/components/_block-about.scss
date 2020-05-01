@@ -16,8 +16,8 @@
     position: absolute;
     top: 140px;
     left: 0;
-    width: 42%;
-    height: 600px;
+    width: 40%;
+    height: 580px;
     // border: 1px solid $color-light-beige;
     z-index: 1;
 
@@ -27,10 +27,14 @@
   }
 
   &__content-container {
-    padding-right: 28%;
-    width: 35%;
+    padding-right: 26%;
+    width: 38%;
     position: relative;
     z-index: 2;
+
+    .main-title {
+      font-size: 96px;
+    }
 
     .content-container__count {
       margin-bottom: 25px;
@@ -49,7 +53,7 @@
 
     .block-about-content__content-container {
       padding-right: initial;
-      padding-left: 12%;
+      padding-left: 11%;
     }
   }
 }

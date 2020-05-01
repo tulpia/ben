@@ -19,6 +19,9 @@ const allIllustrations = [
 ];
 let intervalTransition = null;
 
+// MENU
+const menu = document.querySelector(".menu");
+
 class DefaultTransition extends Highway.Transition {
   in({ from, done }) {
     document.body.classList.remove("page-loading");
@@ -27,40 +30,42 @@ class DefaultTransition extends Highway.Transition {
 
     clearInterval(intervalTransition);
 
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(transitionIllustrationContainer, {
+      duration: 1,
+      opacity: 0,
+    })
+      .fromTo(
+        transitionContainer,
+        {
+          top: "0%",
+        },
+        {
+          top: "-100%",
+          duration: 0.75,
+          ease: "circ.inOut",
+        },
+        0.4
+      )
+      .fromTo(
+        transitionLayer,
+        {
+          top: "0%",
+        },
+        {
+          top: "-100%",
+          duration: 0.75,
+          ease: "circ.inOut",
+          onComplete: () => {
+            done();
+          },
+        },
+        0.55
+      );
 
     setTimeout(() => {
-      tl.to(transitionIllustrationContainer, {
-        duration: 1,
-        opacity: 0,
-      })
-        .fromTo(
-          transitionContainer,
-          {
-            top: "0%",
-          },
-          {
-            top: "-100%",
-            duration: 0.75,
-            ease: "circ.inOut",
-          },
-          0.4
-        )
-        .fromTo(
-          transitionLayer,
-          {
-            top: "0%",
-          },
-          {
-            top: "-100%",
-            duration: 0.75,
-            ease: "circ.inOut",
-            onComplete: () => {
-              done();
-            },
-          },
-          0.55
-        );
+      tl.play();
     }, 500);
   }
 
@@ -80,6 +85,7 @@ class DefaultTransition extends Highway.Transition {
     }, 100);
 
     const tl = gsap.timeline({
+      paused: true,
       onComplete: () => {
         // quand le done est appelé, la transition
         done();
@@ -120,6 +126,18 @@ class DefaultTransition extends Highway.Transition {
         },
         0.55
       );
+
+    if (menu.classList.contains("is-shown")) {
+      document.dispatchEvent(new CustomEvent("menuOpen", {}));
+
+      document.addEventListener("menuClosed", () => {
+        setTimeout(() => {
+          tl.play();
+        }, 250);
+      });
+    } else {
+      tl.play();
+    }
   }
 }
 

@@ -8,7 +8,7 @@
                 <div class="btn-back">
                     <div class="btn-back__fleche"></div>
                 </div>
-                <div class="content-container__title-container">
+                <div class="content-container__title-container is-hidden">
                     {% include "/components/TitleContainer.twig" with {"title": fields.block_introduction.post_title} %}
                 </div>
                 <div class="content-container__details-container">
@@ -27,6 +27,7 @@
                 </div>
             </article>
             <div class="block-introduction__image-container">
+                <div class="image-container__overlay"></div>
                 <img src="{{ fields.block_introduction.image["url"] }}" alt="{{ fields.block_introduction.image["alt"]
                 }}">
             </div>
@@ -36,14 +37,17 @@
     <section class="block-contenu">
         <div class="small-wrapper">
             {% for contenu in fields.block_contenu.blocks %}
-            <article class="contenu contenu--{{ contenu.type }}">
+            <article class="contenu contenu--{{ contenu.type }}" data-scroll data-scroll-offset="10%">
                 {% if contenu.image %}
                     <div class="contenu__image-container">
                         <img src="{{ contenu.image["url"] }}" alt="{{ contenu.image["alt"] }}">
                     </div>
                 {% endif %}
                 {% if contenu.title %}
-                    <h2 class="text contenu__title-container">{{ contenu.title }}</h2>
+                    <h2 class="text contenu__title-container">
+                        <div class="title-container__line"></div>
+                        {{ contenu.title }}
+                    </h2>
                 {% endif %}
                 {% if contenu.texts %}
                 <div class="contenu__texts-container">

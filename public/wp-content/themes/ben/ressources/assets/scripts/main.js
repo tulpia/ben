@@ -68,8 +68,24 @@ document.addEventListener("DOMContentLoaded", () => {
   cursor = new Cursor(bigCursor, smallCursors, links);
 
   cursor.init();
+
+  // SCROLL TO CONTACT
+  const btnContact = document.querySelector(".btn-mail");
+
+  btnContact.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (document.querySelector(".block-contact")) {
+      scroll.scrollTo(document.querySelector(".block-contact"));
+    }
+  });
 });
 
 document.addEventListener("categoryLoaded", () => {
+  scroll.update();
+});
+
+document.addEventListener("updateScroll", () => {
+  console.log("sdasd");
   scroll.update();
 });

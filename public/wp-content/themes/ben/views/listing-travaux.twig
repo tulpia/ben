@@ -10,7 +10,9 @@
             {% include "components/SelectCategory.twig" with {"categories":
       fields.block_contenu.categories} %}
         </div>
-        {% include "components/ScrollingTitle.twig" with {"title": fields.block_introduction.title} %}
+        <div class="scrolling-title-container">
+            {% include "components/ScrollingTitle.twig" with {"title": fields.block_introduction.title} %}
+        </div>
     </section>
     <section class="block-travaux">
         <div class="small-wrapper">

@@ -10,12 +10,14 @@ class Travaux extends Highway.Renderer {
      * ANIMATIONS
      */
     // LANDING
+    const page = document.querySelector(".page--listing-travaux");
     const introContainer = document.querySelector(".block-title");
     const introTitle = new TextSplit(
       introContainer.querySelector(".title-container")
     );
     const introCategory = document.querySelectorAll(".category__text");
     const introFirstWork = document.querySelector(".is-first-shown");
+    const introScrollingTitle = page.querySelector(".scrolling-title");
     const introTl = gsap.timeline({ paused: true });
 
     introTl
@@ -42,6 +44,18 @@ class Travaux extends Highway.Renderer {
           duration: 0.5,
         },
         "<0.45"
+      )
+      .fromTo(
+        introScrollingTitle,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 0.8,
+          ease: "circ.inOut",
+        },
+        0.15
       );
 
     // TRAVAUX

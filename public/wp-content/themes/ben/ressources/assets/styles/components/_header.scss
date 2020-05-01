@@ -25,7 +25,13 @@ header {
     }
 
     .header__rightPart {
-      position: relative;
+      display: flex;
+      align-items: center;
+
+      .rightPart__btns {
+        margin-left: 50px;
+        position: relative;
+      }
     }
   }
 
