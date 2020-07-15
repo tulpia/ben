@@ -62,7 +62,7 @@
     padding-right: 140px;
 
     .details-container__line {
-      background: white;
+      background: $color-magenta;
       position: absolute;
       top: 0;
       left: 0;
@@ -89,7 +89,7 @@
       }
       .text,
       a {
-        color: white;
+        color: $color-magenta;
         font-size: 20px;
         font-weight: 600;
       }
@@ -111,7 +111,7 @@
     width: 50%;
     height: 0%;
     z-index: 1;
-    background: $color-magenta;
+    background: $color-light-beige;
     transition: height 650ms $curve-alt;
   }
 
@@ -123,7 +123,7 @@
     width: 50%;
     height: 0%;
     z-index: 1;
-    background: $color-magenta;
+    background: $color-light-beige;
     transition: height 650ms $curve-alt;
   }
 

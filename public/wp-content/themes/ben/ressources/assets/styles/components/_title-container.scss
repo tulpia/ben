@@ -5,11 +5,16 @@
   .title-container__main {
     position: relative;
     z-index: 2;
-    color: $color-beige;
-    -webkit-text-stroke: 1px $color-black;
+    color: $color-magenta;
+    -webkit-text-stroke: 1px $color-light-beige;
 
     div {
       opacity: 0;
+    }
+
+    span.full {
+      color: $color-light-beige;
+      -webkit-text-stroke: initial;
     }
   }
 
@@ -17,8 +22,8 @@
     // a remplacer plus tard par le parallax
     position: absolute;
     z-index: 1;
-    bottom: -7px;
-    right: -7px;
+    bottom: -6px;
+    right: -6px;
     color: $color-purple;
 
     div {

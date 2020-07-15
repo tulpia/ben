@@ -18,18 +18,17 @@ class PageHome extends Post {
         $block->title = get_field("landing_herotext");
         $block->sidetext = get_field("landing_sidetext");
         $block->image = get_field("landing_image");
+        $block->picto_1 = get_field("landing_picto_1");
+        $block->picto_2 = get_field("landing_picto_2");
 
         return $block;
     }
 
     private function getAbout() {
         $block = new \StdClass();
-
-        $block->image = get_field("about_image");
+        
         $block->description = get_field("about_description");
         $block->link = get_field("about_link");
-        $block->btn = get_field("about_btn");
-        $block->hand = get_field("about_hand");
 
         return $block;
     }

@@ -2,62 +2,41 @@
 
 {% block content %}
 <section class="page page--home" data-router-view='home'>
-	<section class="block-introduction is-hidden">
-		<div class="block-introduction__image-container">
-			<img src="{{fields.block_landing.image["url"]}}" alt="{{fields.block_landing.image["alt"]}}">
-		</div>
-		<div class="wrapper">
-			<div class="block-introduction__side-texts">
-				<ul class="side-texts__left">
-					{% for text in fields.block_landing.sidetext %}
-					{% if loop.last %}
-					<li class="side-texts__list last">
-						<span class="line"></span>
-						<a class="text-alt" href="{{text["text"]["url"]}}">{{text["text"]["title"]}}</a>
-					</li>
-					{% else %}
-					<li class="side-texts__list">
-						<a class="text-alt" href="{{text["text"]["url"]}}">{{text["text"]["title"]}}</a>
-					</li>
-					{% endif %}
-					{% endfor %}
-				</ul>
-				<ul class="side-texts__right">
-					{% for text in fields.block_landing.sidetext %}
-					{% if loop.last %}
-					<li class="side-texts__list last">
-						<span class="line"></span>
-						<a class="text-alt" href="{{text["text"]["url"]}}">{{text["text"]["title"]}}</a>
-					</li>
-					{% else %}
-					<li class="side-texts__list">
-						<a class="text-alt" href="{{text["text"]["url"]}}">{{text["text"]["title"]}}</a>
-					</li>
-					{% endif %}
-					{% endfor %}
-				</ul>
-			</div>
-			<div class="block-introduction__hero-section">
+	<section class="block-introduction">
+		<div class="block-introduction__hero-section">
+			<div class="wrapper">
+				<div class="square-parts">
+					<div class="square-part"><span></span><span></span></div>
+					<div class="square-part"><span></span><span></span></div>
+					<div class="square-part"><span></span><span></span></div>
+					<div class="square-part"><span></span><span></span></div>
+				</div>
 				<div class="hero-section__text-container">
-					{% include "components/TitleContainer.twig" with {"title": fields.block_landing.title["title"], "classes": "title-home", "animated": false} %}
+					<div class="title-container" data-scroll data-scroll-offset="0" data-animation="false">
+						<h1 class="main-title title-container__main">Moi c'est Ben, <br><span class="full">Designer graphique, </span><br><span class="full">webdesigner</span> & <span class="full">Illustrateur</span> <br>à Strasbourg</h1>
+						<p class="main-title title-container__back">Moi c'est Ben, <br>Designer graphique, <br>webdesigner & Illustrateur <br>à Strasbourg</p>
+					</div>
+				</div>
+				<div class="block-introduction__scroll-container">
 				</div>
 			</div>
-			<div class="block-introduction__scroll-container">
-				<div class="scroll-container__line"></div>
+		</div>
+		<div class="block-introduction__image-container">
+			<div class="wrapper">
+				<img src="{{fields.block_landing.picto_1["url"]}}" alt="{{fields.block_landing.picto_1["alt"]}}" class="picto picto-1" data-scroll data-scroll-speed="2">
+				<img src="{{fields.block_landing.image["url"]}}" alt="{{fields.block_landing.image["alt"]}}" class="main-image">
+				<img src="{{fields.block_landing.picto_2["url"]}}" alt="{{fields.block_landing.picto_2["alt"]}}" class="picto picto-2" data-scroll data-scroll-speed="3">
 			</div>
 		</div>
 	</section>
 	<section class="block-about" data-scroll data-scroll-offset="25%" >
-		<div class="small-wrapper">
-			<article class="block-about__img-container">
-				<img src="{{fields.block_about.image["url"]}}" alt="{{fields.block_about.image["alt"]}}">
-			</article>
-			<article class="text block-about__content-container">
-				<div class="content-container__text">
-					{{fields.block_about.description}}
-				</div>
-				{% include "components/BtnHand.twig" with {"link": fields.block_about.link["url"], "text": fields.block_about.btn} %}
-			</article>
+		<div class="wrapper">
+			<div class="block-about__text">
+				{{fields.block_about.description}}
+			</div>
+			<div class="block-about__link-container">
+				<a href="{{fields.link["url"]}}" class="btn btn--wide-text">En savoir plus</a>
+			</div>
 		</div>
 	</section>
 	<section class="block-works" data-scroll data-scroll-offset="25%">
