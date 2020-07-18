@@ -89,7 +89,7 @@
       }
       .text,
       a {
-        color: $color-magenta;
+        color: white;
         font-size: 20px;
         font-weight: 600;
       }
@@ -111,7 +111,7 @@
     width: 50%;
     height: 0%;
     z-index: 1;
-    background: $color-light-beige;
+    background: $color-magenta;
     transition: height 650ms $curve-alt;
   }
 
@@ -123,7 +123,7 @@
     width: 50%;
     height: 0%;
     z-index: 1;
-    background: $color-light-beige;
+    background: $color-magenta;
     transition: height 650ms $curve-alt;
   }
 

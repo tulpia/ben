@@ -83,3 +83,8 @@ function add_to_context($context)
 if (is_admin()) {
 	$editor = new \App\Controllers\Editor();
 }
+
+function image_description_shortcode( $atts, $content = null ) {
+	return '<span class="imagedescription">' . $content . '</span>';
+}
+add_shortcode( 'imagedescription', 'image_description_shortcode' );

@@ -16,7 +16,11 @@
 @import "./components/_scrolling-title.scss";
 @import "./components/_block-about.scss";
 @import "./components/_title-container.scss";
+@import "./components/_squarepart.scss";
 @import "../../node_modules/swiper/swiper.scss";
+
+// Blocs
+@import "./blocs/_bloc-parallax";
 
 // Pages
 @import "./pages/_home.scss";

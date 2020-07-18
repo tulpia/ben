@@ -1,0 +1,40 @@
+.square-part {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #514f5a;
+    top: 0;
+    left: 0;
+    width: 75px;
+    height: 1px;
+    z-index: 1;
+  }
+
+  span {
+    background: white;
+    display: block;
+    position: absolute;
+    z-index: 2;
+
+    &:first-child {
+      height: 1px;
+      width: 25px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:last-child {
+      height: 25px;
+      width: 1px;
+      top: -50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+}

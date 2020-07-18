@@ -40,35 +40,49 @@
 		</div>
 	</section>
 	<section class="block-works" data-scroll data-scroll-offset="25%">
-		<div class="small-wrapper">
-			{% include "components/SelectCategory.twig" with {"categories": fields.block_works.categories} %}
-			<div class="block-works__posts-container">
-				{% for post in fields.block_works.posts %}
-				<a href="{{post.permalink}}" class="work-post {{ post.category.slug == "graphisme" ? "is-first-shown" : "is-hidden" }}" data-category="{{ post.category.slug }}" style="opacity: {{ post.category.slug == "graphisme" ? "1" : "0" }}">
-					<div class="work-post__image-container">
-						<img src="{{post.image["url"]}}" alt="{{post.image["alt"]}}">
-					</div>
-					<div class="work-post__text-container" data-scroll data-scroll-speed="2">
-						{% include "components/TitleContainer.twig" with {"title": post.post_title, "offset": "25%", "animated": true} %}
-						<div class="text-alt text-alt--white text-container__post-count">
-							<span class="post-count__post">01</span>
-							/
-							<span class="post-count__total">05</span>
+		{% include "components/ScrollingTitle.twig" with {
+			"classes": "scrolling-title--horizontal block-works__scrolling-title",
+			"direction": "horizontal",
+			"title": fields.block_works.title,
+			"scroll": 4
+		} %}
+		<section class="block-works__works">
+			<div class="small-wrapper">
+				<div class="works__categories">
+					{% for cat in fields.block_works.categories %}
+						<a href="{{cat.link}}" class="categories__category" data-category="{{ cat.slug }}">
+							<div class="item__wrapper">
+								<div class="title-container title-container--menu">
+									<h1 class="main-title title-container__main">{{cat.title}}</h1>
+									<p class="main-title title-container__back">{{cat.title}}</p>
+									<span class="btn--wide-text know-more">En savoir plus</span>
+								</div> 
+							</div>
+						</a>
+					{% endfor %}
+				</div>
+				<aside class="works__images">
+					{% for cat in fields.block_works.categories %}
+						<div class="images__images-container" data-category="{{ cat.slug }}">
+							{% for work in cat.posts %}
+								<a href="{{ work.permalink }}" class="images-container__work-container">
+									<div class="work-container__parallax">
+										<img src="{{ work.image["url"] }}" alt="{{ work.image["alt"] }}">
+									</div>
+								</a>
+							{% endfor %}
 						</div>
-					</div>
-				</a>
-				{% endfor %}
+					{% endfor %}
+				</aside>
 			</div>
-		</div>
-		<div class="block-works__scrolling-title scrolling-title" data-scroll data-scroll-speed="10">
-			<p class="text">{{fields.block_works.title}}</p>
-		</div>
-		<div class="block-works__link">
-			<a class="text-alt" href="{{fields.block_works.link["url"]}}">
-				{{fields.block_works.link["title"]}}
-			</a>
+		</section>
+		<div class="small-wrapper block-works__gameboy">
+			<div class="square-part"><span></span><span></span></div>
+			<img src="{{ fields.block_works.gameboy["url"] }}" alt="{{ fields.block_works.gameboy["alt"] }}" class="gameboy">
+			<div class="square-part"><span></span><span></span></div>
 		</div>
 	</section>
+	{% include "blocks/bloc_parallax.twig" with {"image": fields.block_works.image} %}
 	{% include "components/SectionContact/SectionContact.twig" %}
 	<footer>
 		{% block footer %}

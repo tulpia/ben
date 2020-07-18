@@ -13,6 +13,7 @@ import DefaultTransition from "./_transitions/DefaultTransition";
 // Import des outils/animations
 import Menu from "./_tools/_menu.js";
 import Cursor from "./_animation/_cursor";
+import Loader from "./_tools/_loader";
 
 // Import des dependances
 import LocomotiveScroll from "locomotive-scroll";
@@ -44,7 +45,7 @@ H.on("NAVIGATE_END", () => {
   cursor.hoverEffects(links);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   // MENU
   const menuContainer = document.querySelector(".menu");
   const menuItems = menuContainer.querySelectorAll(".item__wrapper");
@@ -54,11 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const menu = new Menu(menuContainer, menuItems, menuLinks, menuHeader);
   menu.init();
 
-  // SMOOTHSCROLL
-  scroll = new LocomotiveScroll({
-    el: document.querySelector("[data-scroll-container]"),
-    smooth: true,
-    inertia: 0.75,
+  // SMOOTHSCROLL + LOADER
+  const loader = new Loader(document.querySelectorAll("img"));
+  loader.init();
+
+  this.addEventListener("imagesLoaded", () => {
+    scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+      inertia: 0.75,
+    });
   });
 
   // CURSEUR
@@ -86,6 +92,5 @@ document.addEventListener("categoryLoaded", () => {
 });
 
 document.addEventListener("updateScroll", () => {
-  console.log("sdasd");
   scroll.update();
 });

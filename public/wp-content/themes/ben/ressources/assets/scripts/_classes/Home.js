@@ -1,30 +1,45 @@
-import Highway, { async } from "@dogstudio/highway";
-import WorksFilter from "../_tools/_worksfilter";
-import TextSplit from "../_animation/_textsplit";
-import { gsap } from "gsap";
-import SplitText from "../_tools/_splittext";
-import ClassWatcher from "../_animation/_classwatcher";
+import Highway from "@dogstudio/highway";
+import LinkAnimation from "../_animation/_linkAnimation";
+import WorksHover from "../_animation/_workshover";
+import AboutHover from "../_animation/_aboutHover";
 
 class Home extends Highway.Renderer {
-  onEnter() {}
-
-  onEnterCompleted() {
+  onEnter() {
     /**
-     * FITLRE
+     * ABOUT
      */
-    const filtreContainer = document.querySelector(".select-category");
-    const filtreArguments = filtreContainer.querySelectorAll(
-      ".select-category__category"
-    );
-    const filtrePosts = document.querySelectorAll(".work-post");
+    const aboutContainer = document.querySelector(".block-about");
+    const aboutTexts = [
+      ...aboutContainer.querySelectorAll(".imagedescription"),
+    ];
+    const aboutImages = [...document.querySelectorAll(".block-about-image")];
+    const aboutAnim = new AboutHover(aboutTexts, aboutImages);
 
-    const filtre = new WorksFilter(
-      filtreContainer,
-      filtreArguments,
-      filtrePosts
-    );
-    filtre.init();
+    aboutAnim.init();
+
+    /**
+     * WORKS
+     */
+    const worksContainer = document.querySelector(".block-works");
+    const categoryLinks = [
+      ...worksContainer.querySelectorAll(".categories__category"),
+    ];
+
+    // HOVER
+    if (categoryLinks.length) {
+      const hoverMenu = new LinkAnimation(categoryLinks);
+      hoverMenu.init();
+    }
+
+    // TRAVAUX
+    const worksImages = [
+      ...worksContainer.querySelectorAll(".images__images-container"),
+    ];
+    const hoverWorks = new WorksHover(categoryLinks, worksImages);
+    hoverWorks.init();
   }
+
+  onEnterCompleted() {}
 }
 
 export default Home;
