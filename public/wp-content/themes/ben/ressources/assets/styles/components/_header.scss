@@ -28,8 +28,21 @@ header {
       display: flex;
       align-items: center;
 
+      .rightPart__links-container {
+        display: flex;
+        align-items: center;
+        margin-right: 60px;
+        margin-top: 8px;
+
+        li {
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+        }
+      }
+
       .rightPart__btns {
-        margin-left: 50px;
+        margin-left: 15px;
         position: relative;
       }
     }

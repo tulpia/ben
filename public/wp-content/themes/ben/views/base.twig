@@ -23,6 +23,14 @@
     <div class="cursor inner-cursor inner-cursor--4"></div>
     <div class="cursor inner-cursor inner-cursor--5"></div>
 
+    <div class="block-about__images">
+	    {% for image in fields.block_about.images %}
+            <div class="images__image block-about-image">
+                <img src="{{ image["url"] }}" alt="{{ image["alt"] }}">
+            </div>
+        {% endfor %}
+    </div>
+
     <div class="transition-layer"></div>
     <div class="transition-default">
         <div class="transition-default__images-container">

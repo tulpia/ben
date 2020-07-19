@@ -75,49 +75,14 @@
   }
 }
 
-.btn-hand {
-  display: flex;
-  width: 110px;
-  height: 110px;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-
-  .btn-hand__img-container {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background: url("~@img/hand_ok.svg") no-repeat center;
-    background-size: 40px;
-    transform: translateY(-3px);
-  }
-
-  .btn-hand__text-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    animation: textAround 8s infinite;
-    animation-timing-function: linear;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    @keyframes textAround {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  }
+.btn--wide-text {
+  font-family: $font;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 500;
+  padding: 10px;
 }
 
 .btn-mail {

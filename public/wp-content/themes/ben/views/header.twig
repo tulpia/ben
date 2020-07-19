@@ -5,6 +5,20 @@
         </a>
     </article>
     <article class="header__rightPart">
+        {% if header.links|length > 0 %}
+        <ul class="rightPart__links-container">
+            {% for link in header.links %}
+                <li>
+                    <a href="{{link.link["url"]}}" class="btn btn--wide-text" target="_blank">{{link.link["title"]}}</a>
+                </li>
+                {% if loop.last == false %}
+                <li>
+                    <span class="text-alt">-</span>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
         <a class="btn-mail" data-router-disabled></a>
         <div class="rightPart__btns">
             <a class="btn-menu menu-btn-hover" data-router-disabled>

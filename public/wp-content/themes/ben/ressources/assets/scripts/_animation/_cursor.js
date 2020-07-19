@@ -47,7 +47,7 @@ class Cursor {
       this.bigCursor.style.transform = `translate3d(${this.lastX}px, ${this.lastY}px, 0)`;
 
       this.smallCursors.forEach((cursor, index) => {
-        const coefficient = (index + 1) / 10;
+        const coefficient = (index + 1.5) / 10;
 
         if (!this.isStuck) {
           this.lastCursors[index].lastX = MathUtils.lerp(

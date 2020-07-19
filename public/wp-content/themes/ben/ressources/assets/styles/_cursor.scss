@@ -10,7 +10,7 @@
   left: -30px;
   pointer-events: none;
   z-index: 9999999;
-  transition: width 350ms $curve, height 350ms $curve, background 350ms linear,
+  transition: width 250ms linear, height 250ms linear, background 350ms linear,
     top 350ms $curve, left 350ms $curve;
 
   &.is-hovered {
