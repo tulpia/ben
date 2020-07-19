@@ -1,0 +1,28 @@
+.select-category {
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+
+  &.is-inactive {
+    pointer-events: none;
+  }
+
+  .select-category__category {
+    color: $color-light-beige;
+    font-weight: 400;
+    opacity: 0.5;
+    transition: opacity 350ms linear, font-weight 350ms linear;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 55px;
+    }
+
+    &.select-category__category--active {
+      opacity: 1;
+      font-weight: 600;
+      transition: opacity 350ms linear, font-weight 350ms linear;
+    }
+  }
+}

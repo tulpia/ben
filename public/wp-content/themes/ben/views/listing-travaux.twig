@@ -1,0 +1,42 @@
+{% extends "base.twig" %}
+{% block content %}
+<section class="page page--listing-travaux" data-router-view="travaux">
+    <section class="block-title is-hidden">
+        <div class="small-wrapper">
+            <div class="block-title__title-container">
+                {% include "components/TitleContainer.twig" with {"title":
+        fields.block_introduction.title} %}
+            </div>
+            {% include "components/SelectCategory.twig" with {"categories":
+      fields.block_contenu.categories} %}
+        </div>
+        <div class="scrolling-title-container">
+            {% include "components/ScrollingTitle.twig" with {"title": fields.block_introduction.title} %}
+        </div>
+    </section>
+    <section class="block-travaux">
+        <div class="small-wrapper">
+            {% set i = 1 %}
+            {% for post in fields.block_contenu.posts %}
+            <a href="{{ post.permalink }}" class="travaux-post {{ post.category.slug == "graphisme" ? "is-first-shown" : "is-hidden" }}" data-category="{{ post.category.slug }}" style="opacity: {{ post.category.slug == "graphisme" ? "1" : "0" }}" data-scroll data-scroll-offset="30%">
+                <div class="travaux-post__index-container">
+                    <p class="text travaux-count" data-scroll data-scroll-speed="1">{{ i > 10 ? i : "0" ~ i }}</p>
+                </div>
+                <div class="travaux-post__image-container">
+                    <img src="{{ post.image["url"] }}" alt="{{ post.image["alt"] }}">
+                </div>
+            </a>
+            {% if post.category.slug == "graphisme" %}
+                {% set i = i + 1 %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    {% include "components/SectionContact/SectionContact.twig" %}
+    <footer>
+        {% block footer %}
+        {% include "footer.twig" %}
+        {% endblock %}
+    </footer>
+</section>
+{% endblock %}

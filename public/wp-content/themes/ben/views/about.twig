@@ -1,0 +1,73 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<section class="page page--about" data-router-view='about'>
+    <section class="block-introduction">
+        <div class="small-wrapper">
+        {# oblige de mettre un espace sinon la margin du child pousse le parent en bas et nique tout le layout... #}
+            &nbsp;
+            <article class="block-introduction__upper">
+                <div class="upper__content-container">
+                    <div class="content-container__title-container is-hidden">
+                        {% include "components/TitleContainer.twig" with {"title": fields.block_introduction.title} %}
+                    </div>
+                    <p class="text text--white subtitle is-hidden">{{ fields.block_introduction.subtitle }}</p>
+                </div>
+                <div class="line"></div>
+                <div class="upper__image-container" data-scroll data-scroll-speed="-2">
+                    <img src="{{ fields.block_introduction.image["url"] }}" alt="{{ fields.block_introduction.image["alt"] }}" style="opacity: 0">
+                </div>
+            </article>
+            <article class="block-introduction__lower">
+                <div class="text text--white">
+                    {{ fields.block_introduction.description }}
+                    <a href="{{ fields.block_introduction.link["url"] }}" class="cv">
+                        {{ fields.block_introduction.link["title"] }}
+                    </a>
+                </div>  
+            </article>
+        </div>
+        {% include "components/ScrollingTitle.twig" with {"title": fields.block_introduction.post_title, "animated": true} %}
+    </section>
+    <section class="block-contenu">
+        <div class="wrapper">
+            {% include "components/BlockAbout.twig" with {
+                "title": fields.block_contenu.identite["title"],
+                "image": fields.block_contenu.identite["image"],
+                "text": fields.block_contenu.identite["text"],
+                "count": "01",
+                "classes": "block-about--identite"
+            } %}
+            {% include "components/BlockAbout.twig" with {
+                "title": fields.block_contenu.illustration["title"],
+                "image": fields.block_contenu.illustration["image"],
+                "text": fields.block_contenu.illustration["text"],
+                "count": "02",
+                "classes": "block-about--illustration",
+                "reversed": true
+            } %}
+            {% include "components/BlockAbout.twig" with {
+                "title": fields.block_contenu.webdesign["title"],
+                "image": fields.block_contenu.webdesign["image"],
+                "text": fields.block_contenu.webdesign["text"],
+                "count": "03",
+                "classes": "block-about--webdesign"
+            } %}
+            {% include "components/BlockAbout.twig" with {
+                "title": fields.block_contenu.motion["title"],
+                "image": fields.block_contenu.motion["image"],
+                "text": fields.block_contenu.motion["text"],
+                "count": "04",
+                "classes": "block-about--motion",
+                "reversed": true
+            } %}
+        </div>
+    </section>
+    {% include "components/SectionContact/SectionContact.twig" %}
+    <footer>
+        {% block footer %}
+        {% include "footer.twig" %}
+        {% endblock %}
+    </footer>
+</section>
+{% endblock %}

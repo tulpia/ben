@@ -1,0 +1,11 @@
+<div class="select-category">
+    {% for category in categories %}
+    {% if loop.first %}
+        <a href="#" class="text select-category__category select-category__category--active" data-category="{{category.slug}}" data-router-disabled>
+        {% else %}
+        <a href="#" class="text select-category__category" data-category="{{category.slug}}" data-router-disabled>
+        {% endif %}
+            <p class="category__text">{{category.name}}</p>
+        </a>
+    {% endfor %}
+</div>

@@ -1,0 +1,62 @@
+.cursor {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid $color-purple;
+  will-change: transform;
+  position: fixed;
+  top: -30px;
+  left: -30px;
+  pointer-events: none;
+  z-index: 9999999;
+  transition: width 250ms linear, height 250ms linear, background 350ms linear,
+    top 350ms $curve, left 350ms $curve;
+
+  &.is-hovered {
+    width: 35px;
+    height: 35px;
+  }
+
+  &.is-big {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: -50px;
+  }
+
+  &.is-hidden {
+    width: 0px;
+    height: 0px;
+    border: 1px solid transparent;
+    transition: width 350ms $curve, height 350ms $curve, background 350ms linear;
+  }
+
+  &.inner-cursor {
+    background: $color-purple;
+    border: initial;
+    width: 8px;
+    height: 8px;
+    top: -4px;
+    left: -4px;
+    transition: width 350ms $curve, height 350ms $curve;
+
+    &.is-hovered {
+      width: 0px;
+      height: 0px;
+      transition: width 350ms $curve, height 350ms $curve;
+    }
+  }
+  &.inner-cursor--1 {
+    opacity: 0.2;
+  }
+  &.inner-cursor--2 {
+    opacity: 0.4;
+  }
+  &.inner-cursor--3 {
+    opacity: 0.6;
+  }
+  &.inner-cursor--4 {
+    opacity: 0.8;
+  }
+}

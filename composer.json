@@ -1,5 +1,20 @@
 {
-    "require": {
-        "wpackio/enqueue": "^2.0"
+  "name": "alec/starter",
+  "description": "stuff",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Alec TEIHOTAATA",
+      "email": "teihotaata.alec@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src"
+    }
+  },
+  "require": {
+    "timber/timber": "^1.15",
+    "digitalnature/php-ref": "^1.3"
+  }
 }

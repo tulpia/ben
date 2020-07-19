@@ -1,0 +1,49 @@
+.transition-default {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  background: $color-magenta;
+  width: 100%;
+  height: 100%;
+  z-index: 9999998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  &__images-container {
+    height: 300px;
+    width: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100%;
+      display: none;
+
+      &.is-shown {
+        display: block;
+      }
+    }
+  }
+}
+
+.transition-layer {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  background: $color-purple;
+  width: 100%;
+  height: 100%;
+  z-index: 9999997;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}

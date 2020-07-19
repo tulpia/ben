@@ -1,0 +1,93 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<section class="page page--home" data-router-view='home'>
+	<section class="block-introduction">
+		<div class="block-introduction__hero-section">
+			<div class="wrapper">
+				<div class="square-parts">
+					<div class="square-part"><span></span><span></span></div>
+					<div class="square-part"><span></span><span></span></div>
+					<div class="square-part"><span></span><span></span></div>
+					<div class="square-part"><span></span><span></span></div>
+				</div>
+				<div class="hero-section__text-container">
+					<div class="title-container" data-scroll data-scroll-offset="0" data-animation="false">
+						<h1 class="main-title title-container__main">Moi c'est Ben, <br><span class="full">Designer graphique, </span><br><span class="full">webdesigner</span> & <span class="full">Illustrateur</span> <br>à Strasbourg</h1>
+						<p class="main-title title-container__back">Moi c'est Ben, <br>Designer graphique, <br>webdesigner & Illustrateur <br>à Strasbourg</p>
+					</div>
+				</div>
+				<div class="block-introduction__scroll-container">
+				</div>
+			</div>
+		</div>
+		<div class="block-introduction__image-container">
+			<div class="wrapper">
+				<img src="{{fields.block_landing.picto_1["url"]}}" alt="{{fields.block_landing.picto_1["alt"]}}" class="picto picto-1" data-scroll data-scroll-speed="2">
+				<img src="{{fields.block_landing.image["url"]}}" alt="{{fields.block_landing.image["alt"]}}" class="main-image">
+				<img src="{{fields.block_landing.picto_2["url"]}}" alt="{{fields.block_landing.picto_2["alt"]}}" class="picto picto-2" data-scroll data-scroll-speed="3">
+			</div>
+		</div>
+	</section>
+	<section class="block-about" data-scroll data-scroll-offset="25%" >
+		<div class="wrapper">
+			<div class="block-about__text">
+				{{fields.block_about.description}}
+			</div>
+			<div class="block-about__link-container">
+				<a href="{{fields.link["url"]}}" class="btn btn--wide-text">En savoir plus</a>
+			</div>
+		</div>
+	</section>
+	<section class="block-works" data-scroll data-scroll-offset="25%">
+		{% include "components/ScrollingTitle.twig" with {
+			"classes": "scrolling-title--horizontal block-works__scrolling-title",
+			"direction": "horizontal",
+			"title": fields.block_works.title,
+			"scroll": 4
+		} %}
+		<section class="block-works__works">
+			<div class="small-wrapper">
+				<div class="works__categories">
+					{% for cat in fields.block_works.categories %}
+						<a href="{{cat.link}}" class="categories__category" data-category="{{ cat.slug }}">
+							<div class="item__wrapper">
+								<div class="title-container title-container--menu">
+									<h1 class="main-title title-container__main">{{cat.title}}</h1>
+									<p class="main-title title-container__back">{{cat.title}}</p>
+									<span class="btn--wide-text know-more">En savoir plus</span>
+								</div> 
+							</div>
+						</a>
+					{% endfor %}
+				</div>
+				<aside class="works__images">
+					{% for cat in fields.block_works.categories %}
+						<div class="images__images-container" data-category="{{ cat.slug }}">
+							{% for work in cat.posts %}
+								<a href="{{ work.permalink }}" class="images-container__work-container">
+									<div class="work-container__parallax">
+										<img src="{{ work.image["url"] }}" alt="{{ work.image["alt"] }}">
+									</div>
+								</a>
+							{% endfor %}
+						</div>
+					{% endfor %}
+				</aside>
+			</div>
+		</section>
+		<div class="small-wrapper block-works__gameboy">
+			<div class="square-part"><span></span><span></span></div>
+			<img src="{{ fields.block_works.gameboy["url"] }}" alt="{{ fields.block_works.gameboy["alt"] }}" class="gameboy">
+			<div class="square-part"><span></span><span></span></div>
+		</div>
+	</section>
+	{% include "blocks/bloc_parallax.twig" with {"image": fields.block_works.image} %}
+	{% include "components/SectionContact/SectionContact.twig" %}
+	<footer>
+		{% block footer %}
+		{% include "footer.twig" %}
+		{% endblock %}
+	</footer>
+</section>
+{% endblock %}

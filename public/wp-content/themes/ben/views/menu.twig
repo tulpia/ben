@@ -1,0 +1,22 @@
+<div class="menu">
+    <div class="small-wrapper">
+        <ul class="menu__menu-container">
+            {% for item in menu.items %}
+            <a href="{{item.link}}" class="menu-container__item menu-hover">
+                <div class="item__wrapper">
+                    <div class="title-container title-container--menu">
+                        <h1 class="main-title title-container__main">{{item.title}}</h1>
+                        <p class="main-title title-container__back">{{item.title}}</p>
+                    </div> 
+                </div>
+            </a>
+            {% endfor %}
+        </ul>
+        <div class="menu__details-container">
+            <div class="details-container__line"></div>
+            {% include "components/SectionContact/SectionContactListe/SectionContactListe.twig" with {"title": contact.block_reseaux.title, "contacts": contact.block_reseaux.contacts} %}
+            {% include "components/SectionContact/SectionContactListe/SectionContactListe.twig" with {"title": contact.block_contact.title, "contacts": contact.block_contact.contacts} %}
+        </div>
+    </div>
+    {% include "components/ScrollingTitle.twig" with {"title": "Menu"} %}
+</div>

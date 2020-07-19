@@ -1,0 +1,11 @@
+<section class="block-contact">
+    <div class="small-wrapper">
+        <div class="block-contact__title-container">
+            {% include "/components/TitleContainer.twig" with {"title": contact.block_introduction, "animated": false} %}
+        </div>
+        <div class="block-contact__contacts">
+            {% include "/components/SectionContact/SectionContactListe/SectionContactListe.twig" with {"title": contact.block_reseaux.title, "contacts": contact.block_reseaux.contacts} %}
+            {% include "/components/SectionContact/SectionContactListe/SectionContactListe.twig" with {"title": contact.block_contact.title, "contacts": contact.block_contact.contacts} %}
+        </div>
+    </div>
+</section>

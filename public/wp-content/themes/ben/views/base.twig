@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ function('wp_head') }}
+</head>
+
+<body>
+    <header>
+        {% block header %}
+        {% include "header.twig" %}
+        {% endblock %}
+    </header>
+    {% include "menu.twig" %}
+
+    <div class="cursor big-cursor"></div>
+    <div class="cursor inner-cursor inner-cursor--1"></div>
+    <div class="cursor inner-cursor inner-cursor--2"></div>
+    <div class="cursor inner-cursor inner-cursor--3"></div>
+    <div class="cursor inner-cursor inner-cursor--4"></div>
+    <div class="cursor inner-cursor inner-cursor--5"></div>
+
+    <div class="block-about__images">
+	    {% for image in fields.block_about.images %}
+            <div class="images__image block-about-image">
+                <img src="{{ image["url"] }}" alt="{{ image["alt"] }}">
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="transition-layer"></div>
+    <div class="transition-default">
+        <div class="transition-default__images-container">
+            {% for item in transition.images %}
+                <img src="{{ item["url"] }}" alt="{{ item["alt"] }}">
+            {% endfor %}
+        </div>
+    </div>
+
+    <main data-router-wrapper data-scroll-container>
+        {% block content %}
+        content goes here
+        {% endblock %}
+    </main>
+    {{ function('wp_footer') }}
+</body>
+
+</html>

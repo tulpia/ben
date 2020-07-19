@@ -1,0 +1,114 @@
+.btn-menu {
+  height: 50px;
+  width: 50px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 250ms linear;
+  cursor: pointer;
+
+  .lines-container {
+    width: 21px;
+    height: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+      width: 100%;
+      height: 1px;
+      background: white;
+
+      &.wave {
+        position: relative;
+        height: 3px;
+        background: transparent;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url("~@img/wave.svg") no-repeat center;
+          background-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+.btn-close {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+
+  div {
+    width: 30px;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform-origin: left;
+    transform: rotate(45deg) translateY(-50%);
+    background: $color-light-beige;
+    transition: width 350ms $curve;
+
+    &:last-child {
+      left: initial;
+      right: 12px;
+      transform: rotate(-45deg) translateY(-50%);
+      transform-origin: right;
+      transition: width 500ms $curve;
+    }
+  }
+
+  &.is-active {
+    pointer-events: initial;
+    cursor: pointer;
+  }
+}
+
+.btn--wide-text {
+  font-family: $font;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.btn-mail {
+  display: block;
+  height: 40px;
+  width: 40px;
+  background: url("~@img/contact_white.svg") no-repeat center;
+  background-size: 23px;
+  cursor: pointer;
+  transform: translateY(2px);
+}
+
+.btn-back {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $color-purple;
+
+  &__fleche {
+    width: 80%;
+    height: 80%;
+    background: url("~@img/arrow.svg") no-repeat center;
+    background-size: 18px;
+  }
+}

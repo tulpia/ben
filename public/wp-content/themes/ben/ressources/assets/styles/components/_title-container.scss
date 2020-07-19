@@ -1,0 +1,59 @@
+.title-container {
+  position: relative;
+  display: inline-block;
+
+  .title-container__main {
+    position: relative;
+    z-index: 2;
+    color: $color-magenta;
+    -webkit-text-stroke: 1px $color-light-beige;
+
+    div {
+      opacity: 0;
+    }
+
+    span.full {
+      color: $color-light-beige;
+      -webkit-text-stroke: initial;
+    }
+  }
+
+  .title-container__back {
+    // a remplacer plus tard par le parallax
+    position: absolute;
+    z-index: 1;
+    bottom: -6px;
+    right: -6px;
+    color: $color-purple;
+
+    div {
+      opacity: 0;
+    }
+  }
+
+  &.title-container--menu {
+    // opacity: 0.5;
+
+    .title-container__back {
+      bottom: 0;
+      right: 0;
+      div {
+        opacity: 1;
+        transition: opacity 250ms linear;
+      }
+    }
+
+    .title-container__main {
+      div {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.is-hovered {
+    .title-container__back {
+      opacity: 1;
+      transition: opacity 250ms linear;
+    }
+  }
+}
